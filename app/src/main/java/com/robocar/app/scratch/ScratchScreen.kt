@@ -55,6 +55,8 @@ fun ScratchScreen(
             onBlockLongPress = { id, sx, sy -> contextId = id; ctxX = sx; ctxY = sy },
             onBlockDragStart = { id, sx, sy -> vm.startDragFromWorkspace(id, sx, sy) },
             onWorkspaceTap   = { vm.selectBlock(null); contextId = null },
+            onDragUpdate     = { x, y -> vm.updateDrag(x, y) },
+            onDragEnd        = { x, y, h -> vm.endDrag(x, y, h) },
             modifier         = Modifier
                 .fillMaxSize()
                 .padding(top = 64.dp, bottom = 130.dp),
